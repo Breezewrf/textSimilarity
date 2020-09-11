@@ -1,9 +1,12 @@
 # from textSimarity import demo2_2
 import jieba
 from gensim import corpora, models, similarities
+import sys
 import argparse
 import numpy as np
-from textSimarity.demo2_2 import analyse
+sys.path.append('C:\\Users\\Breeze\\Desktop\\soft_engi')
+from textSimilarity.demo2_2 import analyse
+
 weight = []
 value = []
 
@@ -32,7 +35,7 @@ def readData(origText_path):
     # te = te.replace("，", "")
     te = te.replace("。", "")
     ###
-    #return te
+    # return te
 
     print(te)
     temp = te.split("。")
@@ -81,21 +84,25 @@ def analyseSim(origText, testText):
     return size
 
 
-def main():
-    origText_path = "data/sim_/orig.txt"
-    testText_path = ["data/sim_/orig_0.8_mix.txt", "data/sim_/orig_0.8_del.txt",
-                     "data/sim_/orig_0.8_add.txt", "data/sim_/orig_0.8_dis_15.txt"]
+def main(args):
+
+    origText_path = args.origText_path
+    testText_path = args.testText_path
     origText = readData(origText_path)
     print(len(origText))
-    testText = readData(testText_path[3])
+    testText = readData(testText_path)
     print(len(testText))
+    # analyse
     size = analyseSim(origText, testText)
     print(np.vdot(weight, value)/size)
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--text1", help="this is the position to the text1")
-    parser.parse_args()
-
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description='text similarity')
+
+    parser.add_argument('--origText_path', type=str, help='path to the original text',
+                        default='./data/sim_/orig.txt')
+    parser.add_argument('--testText_path', type=str, help='path to the text to be test',
+                        default='./data/sim_/orig_0.8_dis_10.txt')
+    args = parser.parse_args()
+    main(args)
