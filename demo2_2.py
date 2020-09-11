@@ -7,13 +7,9 @@ from gensim import corpora, models, similarities
 
 
 def analyse(base_data, target_data):
-    # base_data = [
-    #     "活着前言", "d"
-    #     ]
-    # target_data = "活着前言"
     # 1.将base_data中的数据进行遍历后分词
     base_data = [base_data, " "]
-    print(base_data)
+    print(base_data[0])
     base_items = [[i for i in jieba.lcut(item)] for item in base_data]
     print(base_items)
 
@@ -29,7 +25,6 @@ def analyse(base_data, target_data):
     index = similarities.MatrixSimilarity(tf[corpus], num_features=num_features)
 
     # 7.处理测试数据
-
     test_words = [word for word in jieba.cut(target_data)]
     print(test_words)
 
@@ -37,5 +32,5 @@ def analyse(base_data, target_data):
     new_vec = dictionary.doc2bow(test_words)
     # 9.算出相似度
     sims = index[tf[new_vec]]
-    print(list(sims))
+    print(list(sims)[0])
     return list(sims)[0]
