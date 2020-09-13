@@ -7,10 +7,10 @@ weight = []
 value = []
 
 
-def readData(origText_path):
+def readData(textPath):
     data = []
     te = ""
-    with open(origText_path, "r", encoding='utf-8') as org:
+    with open(textPath, "r", encoding='utf-8') as org:
         for line in org.readlines():
             te += line  # lines to line
     # 应当先除空格，再解决换行，去除除了逗号以外所有标点，最后用逗号split
@@ -32,21 +32,9 @@ def readData(origText_path):
         data.append(i.split("，"))
     # Text = dataProcess(data)
     data = sum(data, [])
-    # print(data)
+    print(data)
 
     return data
-
-
-def dataProcess(data):
-    Text = []
-    for sector in data:
-        sector = sector.strip()
-        for i in sector.split("。"):
-            for j in i.split("，"):
-                if j == '' or j == ' ':
-                    continue
-                Text.append(j)
-    return Text
 
 
 def analyseSim(origText, testText):
@@ -72,7 +60,12 @@ def main(args):
     print(len(testText))
     # analyse
     size = analyseSim(origText, testText)
-    print(np.vdot(weight, value)/size)
+    similarity = np.vdot(weight, value)/size
+    print("Final similarity:{}".format(similarity))
+
+    out_path = "./result/"
+    with open(out_path + 'res.txt', "w", encoding='utf-8') as res:
+        res.write(str(similarity))
 
 
 if __name__ == '__main__':
@@ -81,6 +74,6 @@ if __name__ == '__main__':
     parser.add_argument('--origText_path', type=str, help='path to the original text',
                         default='./data/sim_/orig.txt')
     parser.add_argument('--testText_path', type=str, help='path to the text to be test',
-                        default='./data/sim_/orig_0.8_dis_10.txt')
+                        default='./data/sim_/orig_0.8_dis_15.txt')
     args = parser.parse_args()
     main(args)
