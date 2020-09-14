@@ -1,7 +1,7 @@
 import sys
 import argparse
 import numpy as np
-sys.path.append('C:\\Users\\Breeze\\Desktop\\soft_engi')
+# sys.path.append('C:\\Users\\Breeze\\Desktop\\soft_engi')
 from demo2_2 import analyse
 weight = []
 value = []

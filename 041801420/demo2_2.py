@@ -1,7 +1,4 @@
 # -*- coding:utf-8 -*-
-# 同demo2
-# https://blog.csdn.net/qq_33689414/article/details/89516331
-
 import jieba
 from gensim import corpora, models, similarities
 
