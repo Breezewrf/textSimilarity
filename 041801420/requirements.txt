@@ -1,0 +1,5 @@
+jieba==0.42.1
+coverage==5.3
+numpy==1.17.4
+gensim==3.8.3
+memory_profiler==0.57.0
