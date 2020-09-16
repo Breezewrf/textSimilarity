@@ -22,7 +22,7 @@ codes to count the similarity between two specified novels
 
 # Process
 
-https://img2020.cnblogs.com/blog/1833384/202009/1833384-20200916191021674-1937211586.png
+![img](https://img2020.cnblogs.com/blog/1833384/202009/1833384-20200916191021674-1937211586.png)
 
 # setup
 
@@ -42,7 +42,7 @@ memory_profiler==0.57.0
 `python main.py --origText_path --testText_path --outResult_path`
 
 
-
+*Result:*
 ```shell
 Building prefix dict from the default dictionary ...
 Loading model from cache C:\Users\Breeze\AppData\Local\Temp\jieba.cache
