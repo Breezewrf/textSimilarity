@@ -1,7 +1,7 @@
 import unittest
 from main import readData, analyseSim
 import numpy as np
-
+import coverage
 base_path = "C:\\Users\\Breeze\\Desktop\\soft_engi\\textSimilarity\\textSimilarity\\041801420\\data\\sim_\\"
 
 

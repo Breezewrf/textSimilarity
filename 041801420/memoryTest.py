@@ -1,8 +1,8 @@
 import memory_profiler
 import argparse
 from main import _main
-
-@profile
+import coverage
+# @profile
 def my_func(args):
     _main(args)
 
