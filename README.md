@@ -22,7 +22,7 @@ codes to count the similarity between two specified novels
 
 # Process
 
-<img src="C:%5CUsers%5CBreeze%5CDesktop%5Csoft_engi%5Cimage-20200916185613284.png" alt="image-20200916185613284" style="zoom: 80%;" />
+https://img2020.cnblogs.com/blog/1833384/202009/1833384-20200916191021674-1937211586.png
 
 # setup
 
@@ -41,7 +41,18 @@ memory_profiler==0.57.0
 
 `python main.py --origText_path --testText_path --outResult_path`
 
-![image-20200916195753482](C:%5CUsers%5CBreeze%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200916195753482.png)
+
+
+```shell
+Building prefix dict from the default dictionary ...
+Loading model from cache C:\Users\Breeze\AppData\Local\Temp\jieba.cache
+Loading model cost 0.806 seconds.
+Prefix dict has been built successfully.
+Final similarity of orig_0.8_dis_15.txt is : 0.70
+time:1.1939976215362549
+```
+
+
 
 # License
 
